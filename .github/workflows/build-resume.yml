@@ -28,6 +28,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pandoc wkhtmltopdf
 
+      - name: Test job title line lengths
+        run: |
+          python3 test_line_lengths.py
+
       - name: Convert Markdown to HTML
         run: |
           python3 convert_to_html.py
