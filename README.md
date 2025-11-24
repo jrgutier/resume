@@ -20,8 +20,20 @@ This repository uses GitHub Actions to automatically generate a PDF whenever you
 The workflow:
 1. Converts Markdown to HTML with embedded CSS
 2. Generates PDF using wkhtmltopdf
-3. Commits the PDF back to the repository
-4. Makes the PDF available as a downloadable artifact
+3. Attempts to commit the PDF back to the repository (if permissions allow)
+4. Always makes the PDF available as a downloadable artifact
+
+### Downloading the Generated PDF
+
+**From GitHub Actions Artifacts:**
+1. Go to your repository on GitHub
+2. Click the "Actions" tab
+3. Click on the most recent "Build Resume PDF" workflow run
+4. Scroll down to "Artifacts" section
+5. Download "resume-pdf" (contains JR_Gutierrez_Resume.pdf)
+6. Artifacts are kept for 90 days
+
+**Note:** If the workflow can't push the PDF back to the repo due to branch protection rules or permissions, you can still download it from the artifacts.
 
 ## Manual PDF Generation
 

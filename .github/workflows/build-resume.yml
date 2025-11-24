@@ -10,6 +10,9 @@ on:
       - 'resume.css'
       - '.github/workflows/build-resume.yml'
 
+permissions:
+  contents: write
+
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
@@ -17,6 +20,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install pandoc and dependencies
         run: |
@@ -51,7 +56,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add JR_Gutierrez_Resume.pdf
-          git diff --staged --quiet || git commit -m "Auto-generate resume PDF [skip ci]"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-generate resume PDF [skip ci]"
+            git push || echo "Push failed, PDF available as artifact only"
+          fi
