@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J.R. Gutierrez - Resume</title>
     <style>
-/* Resume Styling - One Page Layout */
+/* Resume Styling - Two Page Layout */
 @page {
   size: letter;
-  margin: 0.4in 0.5in;
+  margin: 0.6in 0.75in;
 }
 
 * {
@@ -19,47 +19,47 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 10pt;
-  line-height: 1.3;
+  font-size: 10.5pt;
+  line-height: 1.4;
   color: #333;
   max-width: 8.5in;
   margin: 0 auto;
 }
 
 h1 {
-  font-size: 24pt;
+  font-size: 26pt;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 0.15in;
+  margin-bottom: 0.2in;
   border-bottom: 2px solid #2c5282;
-  padding-bottom: 0.05in;
+  padding-bottom: 0.08in;
 }
 
 h2 {
-  font-size: 12pt;
+  font-size: 13pt;
   font-weight: 700;
   color: #2c5282;
-  margin-top: 0.12in;
-  margin-bottom: 0.08in;
+  margin-top: 0.18in;
+  margin-bottom: 0.12in;
   text-transform: uppercase;
   letter-spacing: 0.5pt;
   border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 0.02in;
+  padding-bottom: 0.04in;
 }
 
 /* Contact info styling */
 p:first-of-type {
-  font-size: 9pt;
-  line-height: 1.4;
-  margin-bottom: 0.12in;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  margin-bottom: 0.15in;
   color: #555;
 }
 
 /* Summary section */
 h2:first-of-type + p {
-  font-size: 9.5pt;
-  line-height: 1.35;
-  margin-bottom: 0.1in;
+  font-size: 10pt;
+  line-height: 1.45;
+  margin-bottom: 0.15in;
 }
 
 /* Job titles and company info */
@@ -70,17 +70,17 @@ strong {
 
 /* Experience entries */
 ul {
-  margin-left: 0.15in;
-  margin-bottom: 0.1in;
+  margin-left: 0.2in;
+  margin-bottom: 0.15in;
   list-style-type: none;
 }
 
 li {
-  margin-bottom: 0.04in;
-  padding-left: 0.12in;
+  margin-bottom: 0.08in;
+  padding-left: 0.15in;
   position: relative;
-  font-size: 9.5pt;
-  line-height: 1.3;
+  font-size: 10pt;
+  line-height: 1.4;
 }
 
 li:before {
@@ -91,32 +91,38 @@ li:before {
   font-weight: bold;
 }
 
-/* Skills section - compact format */
-#skills + p {
-  font-size: 9pt;
+/* Skills section */
+h2:contains("Skills") + p {
+  font-size: 10pt;
   line-height: 1.5;
-  margin-bottom: 0.06in;
+  margin-bottom: 0.1in;
 }
 
-/* Skills categories - inline */
-#skills + p strong {
-  display: inline;
+/* Skills categories */
+p strong {
+  display: block;
   color: #2c5282;
-  font-size: 9.5pt;
+  font-size: 10pt;
   font-weight: 600;
+  margin-top: 0.08in;
+  margin-bottom: 0.04in;
 }
 
-/* Certifications - single line */
-#certifications + p {
-  font-size: 9.5pt;
-  line-height: 1.4;
+/* First skills category */
+h2 + p strong:first-child {
+  margin-top: 0;
 }
 
-/* Education and Leadership sections - compact */
+/* Certifications list */
+h2:contains("Certifications") + ul {
+  margin-left: 0.2in;
+}
+
+/* Education and Leadership sections */
 #education + p,
 #leadership + p {
-  margin-bottom: 0.08in;
-  font-size: 9.5pt;
+  margin-bottom: 0.12in;
+  font-size: 10pt;
 }
 
 /* Links */
@@ -138,18 +144,18 @@ a:hover {
 /* Print optimization */
 @media print {
   body {
-    font-size: 9.5pt;
+    font-size: 10.5pt;
   }
 
   h1 {
-    font-size: 22pt;
-    margin-bottom: 0.12in;
+    font-size: 26pt;
+    margin-bottom: 0.2in;
   }
 
   h2 {
-    font-size: 11pt;
-    margin-top: 0.1in;
-    margin-bottom: 0.06in;
+    font-size: 13pt;
+    margin-top: 0.18in;
+    margin-bottom: 0.12in;
     page-break-after: avoid;
   }
 
@@ -157,28 +163,27 @@ a:hover {
     page-break-inside: avoid;
   }
 
-  /* Ensure skills section stays compact */
-  .skills-grid {
-    columns: 2;
-    column-gap: 0.2in;
+  /* Avoid breaking job entries */
+  p + ul {
+    page-break-before: avoid;
   }
 }
 
-/* Compact paragraph spacing */
+/* Paragraph spacing */
 p {
+  margin-bottom: 0.12in;
+}
+
+/* Job title entries */
+p:has(strong) {
   margin-bottom: 0.08in;
+  line-height: 1.3;
 }
 
-/* Reduce spacing for job entries */
-p:has(strong:contains("|")) {
-  margin-bottom: 0.05in;
-  line-height: 1.2;
-}
-
-/* Tighter spacing after lists */
+/* Spacing after lists */
 ul + p,
 ul + h2 {
-  margin-top: 0.05in;
+  margin-top: 0.08in;
 }
 
     </style>
@@ -196,41 +201,60 @@ ul + h2 {
 <h2>Experience</h2>
 <p><strong>Product Security AT Software Lead</strong> | <strong>The Boeing Company</strong> | <strong>May 2019 - Present</strong></p>
 <ul>
-<li>Active Top-Secret Clearance with SAP. Lead cyber test and verification for B-52 avionics radar display subsystem, ensuring DoD security and Anti-Tamper certification compliance.</li>
-<li>Serve on Boeing's Anti-Tamper Technical Board, reviewing verification strategies for AT solutions across all enterprise programs.</li>
-<li>Develop test documentation (plans, procedures, reports) and architect automated test tools using Python, GoogleTest, FFF within CI/CD DevSecOps pipeline.</li>
-<li>Lead team of 7 software engineers with code reviews, architecture decisions, and mentoring in secure development and test methodologies.</li>
-<li>Conduct security assessments including vulnerability analysis, penetration testing, and risk mitigation for mission-critical aircraft systems.</li>
-<li>Develop secure embedded C software (50% hands-on) for Anti-Tamper integrations per NIST SP 800-53 and DoD standards.</li>
-<li>Coordinate with cross-functional teams, suppliers, and government agencies; represent security testing capabilities to Boeing and customer leadership.</li>
+<li>Active Top-Secret Clearance with Special Access Program (SAP) authorizations</li>
+<li>Lead cyber test and verification efforts for B-52 avionics systems, specifically the radar display subsystem, ensuring compliance with DoD security requirements and Anti-Tamper certification standards</li>
+<li>Serve on Boeing's Anti-Tamper Technical Board, reviewing and approving verification strategies for AT solutions across all enterprise programs</li>
+<li>Develop and maintain comprehensive test documentation including test plans, procedures, and reports for avionics security testing</li>
+<li>Architect and implement automated test tools and CI/CD DevSecOps pipeline utilizing Python, GoogleTest, and FFF (Fake Function Framework) for continuous security verification</li>
+<li>Lead technical team of up to 7 software engineers, providing code reviews, architecture decisions, and task delegation while mentoring in secure software development and test methodologies</li>
+<li>Conduct security assessments including vulnerability analysis, penetration testing, and risk mitigation for mission-critical aircraft systems</li>
+<li>Develop secure embedded C software (50% hands-on development) for Anti-Tamper integrations, adhering to NIST SP 800-53 and DoD security standards</li>
+<li>Coordinate with cross-functional teams, suppliers, and government agencies to resolve complex integration issues and enhance security standards</li>
+<li>Represent security testing capabilities in engagements with Boeing, government, and customer leadership, providing technical recommendations on security risks and solutions</li>
 <p><strong>Cybersecurity IAM Analyst II</strong> | <strong>Sonic Drive-In Corporation</strong> | <strong>Feb 2019 - May 2019</strong></p>
-<li>Conducted penetration testing using BloodHound to identify privilege escalation paths and critical vulnerabilities.</li>
-<li>Architected secure PAM system across 2,000+ endpoints using containerized microservices; developed test methodologies for IAM validation.</li>
-<p><strong>Security Ops Engineer Analyst</strong> | <strong>American Fidelity Assurance</strong> | <strong>Jun 2018 - Jan 2019</strong></p>
-<li>Automated vulnerability scans and incident response using C/C++, Python, PowerShell scripts integrated with SOAR platform.</li>
+<li>Conducted penetration testing using Active Directory security tools (BloodHound) to identify privilege escalation paths and critical vulnerabilities across enterprise infrastructure</li>
+<li>Architected a secure privileged access management (PAM) system across 2,000+ endpoints, utilizing containerized microservices to ensure zero-downtime deployment</li>
+<li>Developed test methodologies and documentation for security validation of identity and access management systems</li>
+<p><strong>Security Ops Engineer Analyst</strong> | <strong>American Fidelity Assurance Company</strong> | <strong>Jun 2018 - Jan 2019</strong></p>
+<li>Automated vulnerability scans and incident response processes using C/C++, Python, and PowerShell scripts integrated with a SOAR platform, reducing response times and enhancing security posture</li>
+<li>Conducted threat analysis and remediation, applying systems thinking to anticipate and mitigate risks across interconnected systems</li>
 <p><strong>Senior Security Engineer</strong> | <strong>Seagate Technology</strong> | <strong>Mar 2013 - Mar 2018</strong></p>
-<li>Built automated security testing tool for SOX compliance, cross-referencing access lists with authorization status.</li>
-<li>Led junior security engineers in full-stack security testing (Linux OS to application layers) and penetration testing of financial systems.</li>
-<li>Developed security architectures per NIST CSF and ISO 27001; defined security test requirements for supplier integrations.</li>
+<li>Built automated security testing tool for SOX compliance that cross-referenced system access lists with employee authorization status, streamlining verification processes</li>
+<li>Led cross-functional teams of junior security engineers in security integration projects, overseeing full-stack security testing from Linux OS to application layers</li>
+<li>Conducted penetration testing and security assessments on financial systems to ensure SOX compliance and identify vulnerabilities</li>
+<li>Developed comprehensive security architectures based on NIST CSF and ISO 27001 frameworks, ensuring compliance for mission-critical data center infrastructure</li>
+<li>Defined security test requirements for supplier integrations, ensuring secure component incorporation into complex systems</li>
 <p><strong>Owner & Security Consultant</strong> | <strong>9Seats Inc.</strong> | <strong>Jan 2008 - Sep 2011</strong></p>
-<li>Conducted RF security testing: WiFi (DoS, deauth, key cracking), ZWave/Zigbee (SDR), RFID/NFC assessments.</li>
-<li>Developed mobile/web applications with integrated security testing; led international outsourced development teams.  </li>
+<li>Conducted RF security testing and penetration testing for wireless systems including WiFi (DoS, deauth attacks, key cracking), ZWave, Zigbee protocols using Software Defined Radio (SDR), and RFID/NFC security assessments</li>
+<li>Developed mobile applications and web systems with integrated security testing throughout the development lifecycle</li>
+<li>Led technical teams in outsourced software development for international clients (India, Ukraine)</li>
+<li>Designed secure software systems and vendor security requirements for 20+ client organizations  </li>
 <h2>Leadership</h2>
-<p><strong>President and Chairman, (ISC)2 Oklahoma City Metro Chapter</strong> | March 2020 - March 2023</p>
-<li>Launched chapter, developed mentorship program for cybersecurity professionals.</li>
+<p><strong>President and Chairman</strong> | <strong>(ISC)2 Oklahoma City Metro Chapter</strong> | <strong>March 2020 - March 2023</strong></p>
+<li>Launched and led the chapter, increasing member engagement and fostering a proactive cybersecurity community</li>
+<li>Developed a mentorship program to guide aspiring professionals, enhancing industry talent pipelines</li>
 <h2>Education</h2>
-<p><strong>B.S. in Information Technology, Security Emphasis</strong> | Western Governors University | March 2019  </p>
-<h2>Skills</h2>
+<p><strong>B.S. in Information Technology, Security Emphasis</strong> | <strong>March 2019</strong></p>
 </ul>
-<p><strong>Languages:</strong> C/C++, Ada, Python, Bash, PowerShell, Perl</p>
-<p><strong>Testing:</strong> Penetration testing, V&V, test automation, CI/CD DevSecOps, GoogleTest, FFF, vulnerability assessments</p>
-<p><strong>RF Security:</strong> WiFi (DoS, deauth, key cracking), SDR, ZWave/Zigbee, RFID/NFC, Flipper Zero</p>
-<p><strong>Tools:</strong> BloodHound, SOAR platforms, automated testing frameworks, vulnerability scanners</p>
-<p><strong>Architecture:</strong> TPM/Secure Boot, key management, Red/Black separation, Zero Trust, Anti-Tamper</p>
-<p><strong>Frameworks:</strong> NIST CSF, NIST SP 800-53, ISO 27001, DoD security standards</p>
-<p><strong>Processes:</strong> Incident response, threat analysis, vulnerability management, Red Team operations</p>
-<p><strong>Engineering:</strong> Software engineering, systems engineering (avionics/defense), embedded systems, test engineering</p>
+<p>Western Governors University | Salt Lake City, UT</p>
+<h2>Skills</h2>
+<p><strong>Programming Languages:</strong> C/C++, Ada, Python, Bash, PowerShell, Perl</p>
+<p><strong>Security Testing & Verification:</strong> Penetration testing, vulnerability assessments, V&V processes, test automation, CI/CD DevSecOps pipelines, GoogleTest, FFF (Fake Function Framework)</p>
+<p><strong>RF Security Testing:</strong> WiFi security (DoS, deauth, key cracking), Software Defined Radio (SDR), ZWave/Zigbee protocols, RFID/NFC security, Flipper Zero, wireless penetration testing</p>
+<p><strong>Security Tools & Platforms:</strong> BloodHound, SOAR platforms, automated testing frameworks, vulnerability scanners</p>
+<p><strong>Security Architecture:</strong> TPM/Secure Boot, key management, Red/Black separation, Zero Trust, Anti-Tamper</p>
+<p><strong>Security Frameworks:</strong> NIST CSF, NIST SP 800-53, ISO 27001, DoD security standards</p>
+<p><strong>Cybersecurity Processes:</strong> Incident response, threat analysis, vulnerability management, Anti-Tamper verification, encryption, penetration testing, Red Team operations</p>
+<p><strong>Engineering Disciplines:</strong> Software engineering, systems engineering (avionics and defense systems), embedded systems, test engineering</p>
 <h2>Certifications</h2>
-<p>CISSP (all concentrations: ISSEP, ISSMP, ISSAP) | CEH | CCNA | CCNA Security</p>
+<ul>
+<li>CISSP - Certified Information Systems Security Professional</li>
+<li>CISSP-ISSEP - Information Systems Security Engineering Professional</li>
+<li>CISSP-ISSMP - Information Systems Security Management Professional</li>
+<li>CISSP-ISSAP - Information Systems Security Architecture Professional</li>
+<li>CEH - Certified Ethical Hacker</li>
+<li>CCNA - Certified Network Associate Routing and Switching</li>
+<li>CCNA Security - Cisco Certified Network Associate Security</li>
+</ul>
 </body>
 </html>

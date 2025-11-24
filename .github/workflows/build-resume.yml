@@ -1,0 +1,57 @@
+name: Build Resume PDF
+
+on:
+  push:
+    branches:
+      - main
+      - claude/**
+    paths:
+      - 'RESUME.md'
+      - 'resume.css'
+      - '.github/workflows/build-resume.yml'
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pandoc and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc wkhtmltopdf
+
+      - name: Convert Markdown to HTML
+        run: |
+          python3 convert_to_html.py
+
+      - name: Convert HTML to PDF using wkhtmltopdf
+        run: |
+          wkhtmltopdf \
+            --page-size Letter \
+            --margin-top 0.6in \
+            --margin-right 0.75in \
+            --margin-bottom 0.6in \
+            --margin-left 0.75in \
+            --enable-local-file-access \
+            RESUME.html \
+            JR_Gutierrez_Resume.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: JR_Gutierrez_Resume.pdf
+          retention-days: 90
+
+      - name: Commit PDF to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add JR_Gutierrez_Resume.pdf
+          git diff --staged --quiet || git commit -m "Auto-generate resume PDF [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
