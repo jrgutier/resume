@@ -183,6 +183,13 @@ p:has(strong) {
   line-height: 1.3;
 }
 
+/* Keep job title lines on one line */
+h2 + p:has(strong),
+ul + p:has(strong) {
+  white-space: nowrap;
+  overflow: visible;
+}
+
 /* Job title lines with company and dates - keep on one line */
 h2 + p + strong,
 ul + p strong {
