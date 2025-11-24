@@ -178,31 +178,25 @@ p {
 }
 
 /* Job title entries */
-p strong {
+p:has(strong) {
   margin-bottom: 0.08in;
   line-height: 1.3;
 }
 
-/* Keep job title lines on one line - make font smaller to fit */
-h2 + p,
-ul + p {
-  white-space: nowrap;
+/* Specific styling for Experience section job titles */
+#experience + p strong,
+#additional-experience + p strong {
   font-size: 9.5pt;
-  margin-bottom: 0.08in;
-  line-height: 1.3;
-  overflow: visible;
-}
-
-/* Exception for paragraphs that are NOT job titles */
-h2 + p:not(:has(strong)),
-ul + p:not(:has(strong)) {
-  white-space: normal;
-  font-size: 10pt;
 }
 
 /* Job entries without bullets (Additional Experience) */
-h2 + p:not(:has(ul)) {
+h2 + p {
   margin-bottom: 0.1in;
+}
+
+/* Reduce font for very long job title lines only */
+p > strong:first-child {
+  font-size: 9.5pt;
 }
 
 /* Spacing after lists */
