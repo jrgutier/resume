@@ -4,13 +4,9 @@ css: resume.css
 
 # J.R. Gutierrez
 
-<span class="iconify" data-icon="charm:person"></span> [jrgutier.com](https://jrgutier.com)
-  : <span class="iconify" data-icon="tabler:brand-github"></span> [github.com/jrgutier](https://github.com/jrgutier)
-  : <span class="iconify" data-icon="tabler:phone"></span> [562-225-76730](tel:+15622256730)
+[jrgutier.com](https://jrgutier.com) | [github.com/jrgutier](https://github.com/jrgutier) | [562-225-6730](tel:+15622256730)
 
-<span class="iconify" data-icon="ic:outline-location-on"></span> 9113 NW 84th Ter, Yukon, OK 730999
-  : <span class="iconify" data-icon="tabler:brand-linkedin"></span> [linkedin.com/in/jrgutierrez](https://linkedin.com/in/jrgutierrez/)
-  : <span class="iconify" data-icon="tabler:mail"></span> [jrgutier@gmail.com](mailto:jrgutier@gmail.com)
+9113 NW 84th Ter, Yukon, OK 73099 | [linkedin.com/in/jrgutierrez](https://linkedin.com/in/jrgutierrez/) | [jrgutier@gmail.com](mailto:jrgutier@gmail.com)
 
 ## Summary
 Product Security Engineer Lead with 25+ years of software development, 12+ years of cyber and software testing, and 6+ years of technical leadership experience. Currently leading security test and verification efforts for B-52 avionics systems at Boeing, with specialized expertise in RF security testing, Anti-Tamper verification, and automated test tool development. Active Top Secret clearance with proven track record in leading cyber test events, developing enterprise test capabilities, and mentoring engineering teams.
@@ -54,7 +50,19 @@ Product Security Engineer Lead with 25+ years of software development, 12+ years
 - Conducted RF security testing and penetration testing for wireless systems including WiFi (DoS, deauth attacks, key cracking), ZWave, Zigbee protocols using Software Defined Radio (SDR), and RFID/NFC security assessments
 - Developed mobile applications and web systems with integrated security testing throughout the development lifecycle
 - Led technical teams in outsourced software development for international clients (India, Ukraine)
-- Designed secure software systems and vendor security requirements for 20+ client organizations  
+- Designed secure software systems and vendor security requirements for 20+ client organizations
+
+## Additional Experience
+
+**IT Systems Analyst** | **UTC Associates (on-site at Culver Studios)** | **Sep 2008 - Mar 2010**
+
+**IT Systems Analyst** | **Trinity Broadcasting Network** | **Feb 2007 - Jun 2008**
+
+**IT Manager** | **Euphora Media Group LLC** | **Jun 2006 - Feb 2007**
+
+**IT Consultant** | **TechnoClarity, Inc.** | **Apr 2001 - Sep 2004**
+
+**IT Administrator** | **Corbin Hill** | **Jan 1999 - Apr 2001**
 
 ## Leadership
 

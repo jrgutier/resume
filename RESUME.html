@@ -30,9 +30,10 @@ h1 {
   font-size: 26pt;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 0.2in;
+  margin-bottom: 0.15in;
   border-bottom: 2px solid #2c5282;
   padding-bottom: 0.08in;
+  text-align: center;
 }
 
 h2 {
@@ -48,11 +49,20 @@ h2 {
 }
 
 /* Contact info styling */
-p:first-of-type {
+h1 + p {
   font-size: 9.5pt;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 0.05in;
+  color: #555;
+  text-align: center;
+}
+
+h1 + p + p {
+  font-size: 9.5pt;
+  line-height: 1.6;
   margin-bottom: 0.15in;
   color: #555;
+  text-align: center;
 }
 
 /* Summary section */
@@ -180,6 +190,17 @@ p:has(strong) {
   line-height: 1.3;
 }
 
+/* Job title lines with company and dates - keep on one line */
+h2 + p + strong,
+ul + p strong {
+  display: inline;
+}
+
+/* Job entries without bullets (Additional Experience) */
+h2 + p:not(:has(ul)) {
+  margin-bottom: 0.1in;
+}
+
 /* Spacing after lists */
 ul + p,
 ul + h2 {
@@ -190,12 +211,8 @@ ul + h2 {
 </head>
 <body>
 <h1>J.R. Gutierrez</h1>
-<p> <a href="https://jrgutier.com">jrgutier.com</a></p>
-<p>  :  <a href="https://github.com/jrgutier">github.com/jrgutier</a></p>
-<p>  :  <a href="tel:+15622256730">562-225-76730</a></p>
-<p> 9113 NW 84th Ter, Yukon, OK 730999</p>
-<p>  :  <a href="https://linkedin.com/in/jrgutierrez/">linkedin.com/in/jrgutierrez</a></p>
-<p>  :  <a href="mailto:jrgutier@gmail.com">jrgutier@gmail.com</a></p>
+<p><a href="https://jrgutier.com">jrgutier.com</a> | <a href="https://github.com/jrgutier">github.com/jrgutier</a> | <a href="tel:+15622256730">562-225-6730</a></p>
+<p>9113 NW 84th Ter, Yukon, OK 73099 | <a href="https://linkedin.com/in/jrgutierrez/">linkedin.com/in/jrgutierrez</a> | <a href="mailto:jrgutier@gmail.com">jrgutier@gmail.com</a></p>
 <h2>Summary</h2>
 <p>Product Security Engineer Lead with 25+ years of software development, 12+ years of cyber and software testing, and 6+ years of technical leadership experience. Currently leading security test and verification efforts for B-52 avionics systems at Boeing, with specialized expertise in RF security testing, Anti-Tamper verification, and automated test tool development. Active Top Secret clearance with proven track record in leading cyber test events, developing enterprise test capabilities, and mentoring engineering teams.</p>
 <h2>Experience</h2>
@@ -228,7 +245,13 @@ ul + h2 {
 <li>Conducted RF security testing and penetration testing for wireless systems including WiFi (DoS, deauth attacks, key cracking), ZWave, Zigbee protocols using Software Defined Radio (SDR), and RFID/NFC security assessments</li>
 <li>Developed mobile applications and web systems with integrated security testing throughout the development lifecycle</li>
 <li>Led technical teams in outsourced software development for international clients (India, Ukraine)</li>
-<li>Designed secure software systems and vendor security requirements for 20+ client organizations  </li>
+<li>Designed secure software systems and vendor security requirements for 20+ client organizations</li>
+<h2>Additional Experience</h2>
+<p><strong>IT Systems Analyst</strong> | <strong>UTC Associates (on-site at Culver Studios)</strong> | <strong>Sep 2008 - Mar 2010</strong></p>
+<p><strong>IT Systems Analyst</strong> | <strong>Trinity Broadcasting Network</strong> | <strong>Feb 2007 - Jun 2008</strong></p>
+<p><strong>IT Manager</strong> | <strong>Euphora Media Group LLC</strong> | <strong>Jun 2006 - Feb 2007</strong></p>
+<p><strong>IT Consultant</strong> | <strong>TechnoClarity, Inc.</strong> | <strong>Apr 2001 - Sep 2004</strong></p>
+<p><strong>IT Administrator</strong> | <strong>Corbin Hill</strong> | <strong>Jan 1999 - Apr 2001</strong></p>
 <h2>Leadership</h2>
 <p><strong>President and Chairman</strong> | <strong>(ISC)2 Oklahoma City Metro Chapter</strong> | <strong>March 2020 - March 2023</strong></p>
 <li>Launched and led the chapter, increasing member engagement and fostering a proactive cybersecurity community</li>

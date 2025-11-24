@@ -23,9 +23,10 @@ h1 {
   font-size: 26pt;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 0.2in;
+  margin-bottom: 0.15in;
   border-bottom: 2px solid #2c5282;
   padding-bottom: 0.08in;
+  text-align: center;
 }
 
 h2 {
@@ -41,11 +42,20 @@ h2 {
 }
 
 /* Contact info styling */
-p:first-of-type {
+h1 + p {
   font-size: 9.5pt;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 0.05in;
+  color: #555;
+  text-align: center;
+}
+
+h1 + p + p {
+  font-size: 9.5pt;
+  line-height: 1.6;
   margin-bottom: 0.15in;
   color: #555;
+  text-align: center;
 }
 
 /* Summary section */
@@ -171,6 +181,17 @@ p {
 p:has(strong) {
   margin-bottom: 0.08in;
   line-height: 1.3;
+}
+
+/* Job title lines with company and dates - keep on one line */
+h2 + p + strong,
+ul + p strong {
+  display: inline;
+}
+
+/* Job entries without bullets (Additional Experience) */
+h2 + p:not(:has(ul)) {
+  margin-bottom: 0.1in;
 }
 
 /* Spacing after lists */
