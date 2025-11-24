@@ -5,45 +5,54 @@ import re
 import sys
 
 def parse_markdown(md_content):
-    """Simple markdown to HTML converter."""
+    """Simple markdown to HTML converter with proper structure."""
     lines = md_content.split('\n')
     html = []
     in_list = False
+    skip_frontmatter = False
 
-    for line in lines:
+    for i, line in enumerate(lines):
         # Skip frontmatter
         if line.strip() == '---':
+            skip_frontmatter = not skip_frontmatter
             continue
-        if line.startswith('css:'):
+        if skip_frontmatter or line.startswith('css:'):
             continue
 
         # Headers
         if line.startswith('# '):
+            if in_list:
+                html.append('</ul>')
+                in_list = False
             html.append(f'<h1>{line[2:]}</h1>')
         elif line.startswith('## '):
+            if in_list:
+                html.append('</ul>')
+                in_list = False
             html.append(f'<h2>{line[3:]}</h2>')
-        # Bold text with pipes (job titles)
-        elif '**' in line and '|' in line:
-            # Convert **text** | **text** | **text** format
-            line = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', line)
-            html.append(f'<p>{line}</p>')
         # List items
         elif line.startswith('- '):
+            # If we have a job title on the previous line, start a list
             if not in_list:
                 html.append('<ul>')
                 in_list = True
-            html.append(f'<li>{line[2:]}</li>')
+            content = line[2:]
+            # Convert **text** to <strong>
+            content = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', content)
+            # Convert links [text](url)
+            content = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', content)
+            html.append(f'<li>{content}</li>')
         else:
-            if in_list and line.strip():
+            # Close list if we're starting a new paragraph
+            if in_list and line.strip() and not line.startswith('- '):
                 html.append('</ul>')
                 in_list = False
+
             if line.strip():
                 # Convert **text** to <strong>
                 line = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', line)
                 # Convert links [text](url)
                 line = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', line)
-                # Convert iconify spans
-                line = re.sub(r'<span class="iconify"[^>]*></span>', '', line)
                 html.append(f'<p>{line}</p>')
 
     if in_list:
